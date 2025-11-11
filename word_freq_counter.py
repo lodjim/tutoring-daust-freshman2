@@ -1,13 +1,3 @@
-from collections import Counter
-
-
-
-
-def count_word_frequencies(text):
-    words = text.split()
-    return dict(Counter(words))
-
-
 
 def word_freq_counter(text):
     freq_dict = {}
@@ -30,17 +20,22 @@ def word_freq_counter(text):
         
         freq_dict[word] = cpt    
 
+    # the goal here is to get the most often word
+    list_of_keys = list(freq_dict.keys())
+
+    more_freq_name = ""
+    more_freq_value = 0
+    for key in list_of_keys:
+        if freq_dict[key] > more_freq_value:
+            more_freq_value = freq_dict[key]
+            more_freq_name = key
+    print("The most often is :",more_freq_name)
+    print("with this value:",more_freq_value)
+
+
     return freq_dict
-
-
 
 
 res = word_freq_counter("Bonjour Bonjour Bonjour je m'appele aicha je aicha")
 print(res)
 
-
-print("----------------------------------------------")
-
-
-res = count_word_frequencies("Bonjour Bonjour Bonjour je m'appele aicha je aicha")
-print(res)
